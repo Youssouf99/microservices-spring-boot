@@ -1,9 +1,11 @@
 package tn.insat.tpmicro.productservice.Mappers;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Component;
 import tn.insat.tpmicro.productservice.dtos.ProductDto;
 import tn.insat.tpmicro.productservice.entites.Product;
 
+@Component
 public class ProductMapper {
 
     public static ProductDto toProductDto(Product product){
