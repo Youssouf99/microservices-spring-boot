@@ -2,6 +2,7 @@ package tn.insat.tpmicro.productservice.services;
 
 import lombok.AllArgsConstructor;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import tn.insat.tpmicro.productservice.dtos.ProductDto;
 import tn.insat.tpmicro.productservice.entites.Product;
@@ -37,6 +38,15 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getProducts(){
         return productRepository.findAll();
 
+    }
+
+
+    @Override
+    public List<ProductDto> getProductByName(String name, Pageable pageable){
+        return   productRepository.productByName(name, pageable)
+                .stream()
+                .map(product -> toProductDto(product))
+                .collect(Collectors.toList());
     }
 
 
