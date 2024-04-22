@@ -2,6 +2,39 @@
 
 Ce projet est un exemple d'architecture basée sur des microservices utilisant Spring Cloud. Il comprend plusieurs services indépendants qui travaillent ensemble pour fournir une application distribuée.
 
+## Architecture
+
+```
+                             +---------------------+
+                             |                     |
+                             |   Gateway Service   |
+                             |                     |
+                             +----------+----------+
+                                        |
+                                        |
+                             +----------v----------+
+                             |                     |
+                             |  Discovery Service  |
+                             |                     |
+                             +----------+----------+
+                                        |
+                                        |
+                             +----------v----------+
+                             |                     |
+                             |   Config Service    |
+                             |                     |
+                             +----------+----------+
+                                        |
+                                        |
+      +------------+-------------------+---------------------+------------+
+      |            |                   |                     |            |
++-----v----+ +-----v----+       +------v------+       +------v----+ +------v----+
+|          | |          |       |             |       |           | |           |
+|App1Service| |App2Service|       |App3Service  |       |           | |           |
+|          | |          |       |             |       |           | |           |
++----------+ +----------+       +-------------+       +-----------+ +-----------+
+```
+
 ## Structure du Projet
 
 L'écosystème de microservices se compose des services suivants :
